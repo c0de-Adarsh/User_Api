@@ -40,6 +40,10 @@ const userSchema = new mongoose.Schema({
     },
     address:{
         type:String
+    },
+    isDeleted:{
+        type:Boolean,
+        default:false
     }
 })
 
