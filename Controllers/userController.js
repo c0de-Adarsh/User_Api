@@ -227,4 +227,24 @@ const singalUser = async (req , res) =>{
         }
      }
 
-module.exports = {userData,getUser,singalUser,softDeleteUser,findDelelteUser,deleteUserList,updateUser,updateUserPassword,updateCityDob};
+      const findmaleUser = async (req , res) =>{
+        try {
+            
+            const maleUser = await User.find({gender:'Male'})
+
+             if(maleUser.length === 0){
+              return res.status(401).json({message:'Male user not found'})
+             }
+           
+
+             res.status(200).json({
+                message:'Male use fetched sucessfully',
+                users:maleUser
+             })
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({error:'Internal server error'})
+            
+        }
+      }
+module.exports = {userData,getUser,singalUser,softDeleteUser,findDelelteUser,deleteUserList,updateUser,updateUserPassword,updateCityDob,findmaleUser};

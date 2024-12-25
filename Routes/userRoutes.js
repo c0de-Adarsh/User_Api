@@ -2,7 +2,7 @@ const express = require('express')
 const router = express()
 
 
-const {userData,getUser,singalUser,softDeleteUser,findDelelteUser,deleteUserList,updateUser,updateUserPassword,updateCityDob} = require('../Controllers/userController')
+const {userData,getUser,singalUser,softDeleteUser,findDelelteUser,deleteUserList,updateUser,updateUserPassword,updateCityDob,findmaleUser} = require('../Controllers/userController')
 
 
 router.route('/user').post(userData)
@@ -14,5 +14,6 @@ router.route('/deleteuser/:id').delete(deleteUserList)
 router.route('/updateuser/:id').put(updateUser)
 router.route('/updateuserpassword/:id').put(updateUserPassword)
 router.route('/updatecitydob/:id').put(updateCityDob)
+router.route('/maleuser').get(findmaleUser)
 
 module.exports = router;
